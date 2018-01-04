@@ -1,0 +1,40 @@
+{
+  "name": "gv-daily-standup",
+  "version": "0.1.0",
+  "main": "public/main.js",
+  "homepage": "./",
+  "private": true,
+  "dependencies": {
+    "electron-is-dev": "^0.3.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "wait-on": "^2.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron-start": "electron .",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "build — em.main=build/electron.js"
+  },
+  "devDependencies": {
+    "electron-builder": "^19.52.1",
+    "concurrently": "^3.5.1",
+    "electron": "^1.7.10"
+  },
+  "build": {
+    "appId": "gv-daily-standup",
+    "files": [
+      "build/**/*",
+      "public/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
